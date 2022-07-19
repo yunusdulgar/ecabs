@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="config-server" />
+        <module name="booking-producer-service" />
+        <module name="booking-consumer-service" />
+        <module name="booking-domain" />
+        <module name="booking-database-service" />
+        <module name="eureka-server" />
+        <module name="booking-dao" />
+        <module name="booking-parent-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="booking-dependencies" target="11" />
+      <module name="booking-message-service" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="booking-consumer-service" options="-parameters" />
+      <module name="booking-dao" options="-parameters" />
+      <module name="booking-database-service" options="-parameters" />
+      <module name="booking-dependencies" options="-parameters" />
+      <module name="booking-domain" options="-parameters" />
+      <module name="booking-message-service" options="-parameters" />
+      <module name="booking-parent-service" options="-parameters" />
+      <module name="booking-producer-service" options="-parameters" />
+      <module name="config-server" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+    </option>
+  </component>
+</project>

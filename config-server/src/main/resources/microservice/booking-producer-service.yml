@@ -1,0 +1,67 @@
+server:
+  port: 8502
+
+spring:
+  application:
+    name: booking-producer-service
+  datasource:
+    url: jdbc:h2:tcp://localhost:9090/mem:ecabDB
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: none
+  rabbitmq:
+    host: localhost
+    username: guest
+    password: guest
+    port: 5672
+
+rabbit:
+  data:
+    exchange:
+      message: "exchange.message"
+      booking: "exchange.booking"
+      durable: false
+      autoDelete: false
+    queue:
+      message:
+        audit: "queue.message.audit"
+      booking:
+        add: "queue.booking.add"
+        edit: "queue.booking.edit"
+        delete: "queue.booking.delete"
+        durable: false
+    binding:
+      all: #
+      booking:
+        all: "booking.#"
+        add: "booking.add.#"
+        edit: "booking.edit.#"
+        delete: "booking.delete.#"
+    route:
+       booking:
+         add: "booking.add"
+         edit: "booking.edit"
+         delete: "booking.delete"
+
+api:
+  basePackagePattern: "com.ecabs.interview"
+  basePackageSelectors: "/.*"
+  title: "Ecabs Interview Swagger"
+  description: "Ecabs Api"
+  contact:
+    name: "Yunus Dulgar"
+    url: ""
+    email: ""
+  license: "Apache 2.0"
+  licenseUrl: "http://www.apache.org/licenses/LICENSE-2.0.html"
+  version: "1.12.3"
+
+eureka:
+  client:
+    instance:
+      hostname: localhost
+    serviceUrl:
+      defaultZone: http://localhost:8500/eureka/

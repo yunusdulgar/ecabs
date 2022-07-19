@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: booking-database-service
+  datasource:
+    url: jdbc:h2:mem:ecabDB
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.H2Dialect
+      show_sql: true
+      format_sql: true
+      ddl-auto: create
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+
+server:
+  port: 8091
+
+eureka:
+  client:
+    instance:
+      hostname: localhost
+    serviceUrl:
+      defaultZone: http://localhost:8500/eureka/
